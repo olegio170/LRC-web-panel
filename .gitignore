@@ -1,3 +1,6 @@
+# Idea
+.idea/*
+
 # Logs
 logs
 *.log
@@ -77,3 +80,5 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+*.bat
+test.js
