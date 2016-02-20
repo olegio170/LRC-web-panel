@@ -1,32 +1,42 @@
-body {
-    background-image: url("/img/background.png");
-    color: #000;
-    font-family: "RobotoDraft", "Roboto", sans-serif;
-    margin: 0;
-    padding: 0;
-}
+﻿/* Main elements */
 
 * {
     box-sizing: border-box;
 }
 
-.wrapper, .header-content {
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.header-content {
-    padding: 10px;
+body {
+    background-color: #fff;
+    color: #222;
+    font-family: "RobotoDraft", "Roboto", sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 header {
     background-color: #009688 !important;
-    color: #ffffff;
+    color: #fff !important;
 }
 
-header div.block {
-    display: inline-block;
+aside {
+    float: left;
+    width: 250px;
 }
+
+main {
+    float: right;
+    margin-left: 20px;
+    width: calc(100% - 270px);
+}
+
+footer {
+    clear: both;
+    margin-bottom: 0 !important;
+    padding: 5px;
+}
+
+/* --- */
+
+/* Inline */
 
 a {
     color: inherit;
@@ -37,13 +47,48 @@ p {
     margin: 10px 0;
 }
 
-h1, h2, h3 {
-    font-weight: 500;
-    line-height: 1.1;
-    color: inherit;
-    margin-top: 10px;
-    margin-bottom: 10px;
+h1, h2, h3, h4, h5, h6 {
+    font-weight: lighter;
+    line-height: 0.5em;
 }
+
+/* --- */
+
+/* Header */
+
+.wrapper, .header-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.header-content {
+    padding: 10px;
+}
+
+header div.block {
+    display: inline-block;
+}
+
+/* --- */
+
+/* Aside */
+
+aside div.aside-title {
+    border-bottom: 1px solid #009688;
+}
+
+aside .mt-block-header h2 {
+    text-align: center;
+    margin: 0;
+}
+
+aside .mt-block-content p {
+    margin: 10px;
+}
+
+/* --- */
+
+/* Tables */
 
 table {
     border-collapse: collapse;
@@ -57,41 +102,25 @@ td, th {
     padding: 5px 10px;
 }
 
+/* --- */
+
+/* Misc */
+
 .block {
      display: block;
      margin: 0 15px;
  }
-
-aside div.aside-title {
-    border-bottom: 1px solid #009688;
-}
-
-header, footer, .aside-block {
+ 
+ header, footer, .aside-block {
     background-color: #ffffff;
     margin-bottom: 20px;
     padding: 0 0 2px 0;
     box-shadow: 0 0 2px rgba(0,0,0,0.12),0 2px 4px rgba(0,0,0,0.24);
 }
 
-aside {
-    float: left;
-    width: 250px;
-}
+/* --- */
 
-aside div.aside-title {
-    background-color: #009688;
-    color: #fff;
-    display: block;
-    width: 100%;
-    border-radius: 3px 3px 0 0;
-    margin: 0;
-    padding: 10px;
-}
-
-aside div.aside-title h2 {
-    text-align: center;
-    margin: 0;
-}
+/* Menu */
 
 ul.main-menu {
     list-style: none;
@@ -109,7 +138,7 @@ ul.main-menu li:last-child {
 
 ul.main-menu li a {
     display: block;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease;
     padding: 5px 20px;
 }
 
@@ -117,47 +146,98 @@ ul.main-menu li a:hover {
     background-color: #eee;
 }
 
-main {
-    float: right;
-    margin-left: 20px;
-    width: calc(100% - 270px);
-}
+/* --- */
 
-footer {
-    clear: both;
-    margin-bottom: 0 !important;
-    padding: 5px;
-}
+/* Material design */
 
-/* Material */
-
-.material-block {
+.mt-block {
     display: block;
     margin: 0 0 20px 0;
+    padding: 0;
 }
 
-.material-block-header {
+.mt-block-header {
     background-color: #009688;
     color: #fff;
-    display: block;
     width: 100%;
     border-radius: 3px 3px 0 0;
     margin: 0;
     padding: 10px;
 }
 
-.material-block-header h2 {
+.mt-block-header h2 {
+    line-height: 1em;
     margin: 0 5px;
 }
 
-.material-block-content {
+.mt-block-content {
     background-color: #fff;
     display: block;
-    box-shadow: 0 0 2px rgba(0,0,0,0.12),0 2px 4px rgba(0,0,0,0.24);
     margin: 0;
-    padding: 10px;
+    padding: 1px 1px;
+    box-shadow: 0 0 2px rgba(0,0,0,0.12),0 2px 4px rgba(0,0,0,0.24);
 }
 
-.material-block-content h2 {
+.mt-padding {
+    padding: 5px 10px !important;
+}
+
+.mt-block-content h1, .mt-block-content h2, .mt-block-content h3 {
     color: #009688;
 }
+
+/* --- */
+
+/* Mobile css */
+
+@media only screen and (max-device-width: 480px) {    
+    main {
+        float: none;
+        margin: 0;
+        width: 100%;
+    }
+    
+    aside {
+        float: none;
+        width: 100%;
+    }
+    
+    .mt-block {
+    display: block;
+    margin: 0 0 20px 0;
+    padding: 0;
+    }
+
+    .mt-block-header {
+        background-color: #009688;
+        color: #fff;
+        width: 100%;
+        border-radius: 10px 10px 0 0;
+        margin: 0;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .mt-block-header h2 {
+        line-height: 1em;
+        margin: 0 5px;
+    }
+
+    .mt-block-content {
+        background-color: #fff;
+        display: block;
+        margin: 0;
+        padding: 1px 1px;
+        box-shadow: 0 0 2px rgba(0,0,0,0.12),0 2px 4px rgba(0,0,0,0.24);
+    }
+
+    .mt-padding {
+        padding: 5px 10px !important;
+    }
+
+    .mt-block-content h1, .mt-block-content h2, .mt-block-content h3 {
+        color: #009688;
+    }
+}
+
+/* --- */

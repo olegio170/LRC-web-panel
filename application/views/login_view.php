@@ -1,4 +1,3 @@
-<h1>Страница авторизации</h1>
 <p>
 <form action="" method="post">
 <table class="login">
@@ -20,7 +19,7 @@
 </form>
 </p>
 
-<?php extract($data); ?>
+<?php extract($data['data']); ?>
 <?php if($login_status=="access_granted") { ?>
 <p style="color:green">Авторизация прошла успешно.</p>
 <?php } elseif($login_status=="access_denied") { ?>

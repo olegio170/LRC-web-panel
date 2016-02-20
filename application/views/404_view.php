@@ -1,4 +1,6 @@
-<h1>404</h1>
 <p>
-<img src="/images/404.png">
+    Error 404 – Page Not Found
+</p>
+<p>
+    The page you requested could not be found.
 </p>
