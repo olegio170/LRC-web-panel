@@ -1,6 +1,6 @@
-﻿<?
-define("HOST","terada.mysql.ukraine.com.ua");
-define("USER","terada_u150177");
-define("PASSWORD","efkrrcbw");
-define("DB","terada_u150177");
+﻿<?php
+define("HOST","localhost");
+define("USER","root");
+define("PASSWORD","");
+define("DB","lrc-web-panel");
 ?>
