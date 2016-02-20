@@ -1,0 +1,163 @@
+body {
+    background-image: url("/img/background.png");
+    color: #000;
+    font-family: "RobotoDraft", "Roboto", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.wrapper, .header-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.header-content {
+    padding: 10px;
+}
+
+header {
+    background-color: #009688 !important;
+    color: #ffffff;
+}
+
+header div.block {
+    display: inline-block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+p {
+    margin: 10px 0;
+}
+
+h1, h2, h3 {
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table, td, th {
+    border: 1px solid #aaa;
+}
+
+td, th {
+    padding: 5px 10px;
+}
+
+.block {
+     display: block;
+     margin: 0 15px;
+ }
+
+aside div.aside-title {
+    border-bottom: 1px solid #009688;
+}
+
+header, footer, .aside-block {
+    background-color: #ffffff;
+    margin-bottom: 20px;
+    padding: 0 0 2px 0;
+    box-shadow: 0 0 2px rgba(0,0,0,0.12),0 2px 4px rgba(0,0,0,0.24);
+}
+
+aside {
+    float: left;
+    width: 250px;
+}
+
+aside div.aside-title {
+    background-color: #009688;
+    color: #fff;
+    display: block;
+    width: 100%;
+    border-radius: 3px 3px 0 0;
+    margin: 0;
+    padding: 10px;
+}
+
+aside div.aside-title h2 {
+    text-align: center;
+    margin: 0;
+}
+
+ul.main-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul.main-menu li {
+    border-bottom: 1px solid #ddd;
+}
+
+ul.main-menu li:last-child {
+    border-bottom: none;
+}
+
+ul.main-menu li a {
+    display: block;
+    transition: all 0.3s ease;
+    padding: 5px 20px;
+}
+
+ul.main-menu li a:hover {
+    background-color: #eee;
+}
+
+main {
+    float: right;
+    margin-left: 20px;
+    width: calc(100% - 270px);
+}
+
+footer {
+    clear: both;
+    margin-bottom: 0 !important;
+    padding: 5px;
+}
+
+/* Material */
+
+.material-block {
+    display: block;
+    margin: 0 0 20px 0;
+}
+
+.material-block-header {
+    background-color: #009688;
+    color: #fff;
+    display: block;
+    width: 100%;
+    border-radius: 3px 3px 0 0;
+    margin: 0;
+    padding: 10px;
+}
+
+.material-block-header h2 {
+    margin: 0 5px;
+}
+
+.material-block-content {
+    background-color: #fff;
+    display: block;
+    box-shadow: 0 0 2px rgba(0,0,0,0.12),0 2px 4px rgba(0,0,0,0.24);
+    margin: 0;
+    padding: 10px;
+}
+
+.material-block-content h2 {
+    color: #009688;
+}
