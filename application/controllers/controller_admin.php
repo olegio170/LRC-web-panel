@@ -13,7 +13,7 @@ class Controller_Admin extends Controller
 		Пароль должен храниться в базе данных в захешированном виде, но пока оставим как есть.
 		*/
 		
-		if ( $_SESSION['admin'] == "12345" )
+		if ($this->check_auth($_SESSION['login'],$_SESSION['password']))
 		{
 			$this->view->generate('admin_view.php', 'template_view.php', array('title' => 'Admin panel'));
 		}
