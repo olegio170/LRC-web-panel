@@ -12,6 +12,7 @@
         $stmt = $GLOBALS['DB']->prepare("SELECT id FROM users WHERE login = :login AND password = :password");
         $stmt->execute(array('login' => $login,'password' => $password));
         $row = $stmt->fetch();
+
         if(isset($row['id']))
         {
             $GLOBALS['loggedIn'] = true;

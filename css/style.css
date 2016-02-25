@@ -105,7 +105,9 @@ td, th {
 /* --- */
 
 /* Misc */
-
+.block-overflow{
+    overflow: auto;
+}
 .block {
      display: block;
      margin: 0 15px;
@@ -240,5 +242,7 @@ ul.main-menu li a:hover {
     }
 }
 
-
+table tr td {
+    text-overflow: ellipsis;
+}
 /* --- */
