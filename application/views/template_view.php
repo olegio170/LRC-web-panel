@@ -13,6 +13,7 @@
 			<a href="/"><h1>LRC Control panel</h1></a>
             <p>Advanced remote control system</p>
         </div>
+        <div><a href="/admin/logout">OOO</a></div>
     </header>
 
     <div class="wrapper">

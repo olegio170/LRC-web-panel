@@ -6,6 +6,7 @@
 
         $password = hash('sha256',$password);
         $password = SALT.$password;
+        $password = hash('sha256',$password);
 
 
         $stmt = $GLOBALS['DB']->prepare("SELECT id FROM users WHERE login = :login AND password = :password");

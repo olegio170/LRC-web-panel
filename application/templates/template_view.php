@@ -11,8 +11,11 @@
     <header>
         <div class="header-content">
 			<a href="/"><h1>LRC Control panel</h1></a>
-            <p>Advanced remote control system</p>
+            <div>Advanced remote control system
+            <a href="/admin/logout"><img src="images/exit.png" align="right" id="exit-button"></a>
+            </div>
         </div>
+
     </header>
 
     <div class="wrapper">
