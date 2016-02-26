@@ -12,7 +12,7 @@
         <div class="header-content">
 			<a href="/"><h1>LRC Control panel</h1></a>
             <div>Advanced remote control system
-            <a href="/admin/logout"><img src="images/exit.png" align="right" id="exit-button"></a>
+            <a href="/admin/logout"><img src="/images/exit.svg" align="right" id="exit-button"></a>
             </div>
         </div>
 
@@ -30,6 +30,7 @@
                         <li><a href="/contacts">Contacts</a></li>
                         <li><a href="/services">Services</a></li>
                         <li><a href="/portfolio">Portfolio</a></li>
+                        <li><a href="/userList">User list</a></li>
                     </ul>
                 </div>
             </div>
@@ -57,7 +58,7 @@
                 <div class="mt-block-header">
                     <h2><?php echo $data['title'] ?></h2>
                 </div>
-                <div class="mt-block-content mt-padding block-overflow">
+                <div class="mt-block-content mt-padding">
                     <?php include 'application/views/'.$content_view; ?>
                 </div>
             </div>
