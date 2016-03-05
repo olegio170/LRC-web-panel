@@ -28,15 +28,16 @@
             <td><?php echo $data['data']['Speed']?></td>
         </tr> */?>
         <?php
-        foreach($data['data'] as $key => $row )
+        $users = $data['data'];
+        foreach($users as $key => $row )
         {
             echo "<tr>
-                        <td>".$key."</td>
-                        <td><a href='http://".$_SERVER['HTTP_HOST']."/userControl/index/?id=".$row['id']."'>".$row['id']."</a></td>
+                        <td>".($key+1)."</td>
+                        <td><a href='http://".$_SERVER['HTTP_HOST']."/userControl/index/?id=".$row['shaId']."'>".$row['shaId']."</a></td>
                         <td>".$row['CPU']."</td>
                         <td>".$row['RAM']."</td>
                         <td>".$row['OS']."</td>
-                        <td>".$row['Speed']."</td>
+                        <td>".$row['speed']."</td>
                     </tr>";
         }
         ?>
@@ -48,6 +49,7 @@
                 {
                     echo "<div style='display: inline-block;margin-right: 5px;;'><a href='http://".$_SERVER['HTTP_HOST']."/userList/index/?page=".$i."'>".$i."</a></div>";
                 }
+
                 ?>
             </td>
         </tr>

@@ -68,7 +68,7 @@
                 <table border='1' width='100%'>
                     <tr>
                         <td colspan='2'>
-                            <h2 align='center'>id: <div id='divId'><?php echo $data['data']['id'] ?></div></h2>
+                            <h2 align='center'>id: <div id='divId'><?php echo $data['data']['shaId'] ?></div></h2>
                         </td>
                     </tr>
                     <tr>
