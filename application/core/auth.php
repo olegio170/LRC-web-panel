@@ -1,6 +1,5 @@
 <?php
     session_start();
-    require_once '/application/create_databace.php';
     if(isset($_SESSION['login']) && isset($_SESSION['password'])){
         $login = $_SESSION['login'];
         $password = $_SESSION['password'];
