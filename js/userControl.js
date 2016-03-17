@@ -8,11 +8,11 @@ $(document).ready(function(){
 });
 //main();
 function main (){
-    //comand_line();
+    comand_line();
     if (!window.WebSocket) {
         alert ('WebSocket is  unsupported in your browser!');
     }
-    connectToServer();
+    //connectToServer();
     $('.getButton').click(function(){
         if(clientObj['isAnswer']) {
             var request = $(this).attr('title');
@@ -101,11 +101,46 @@ function writeConsole (msg) {
     document.getElementById('answerBox').scrollTop = 9999;
 }
 
+
 function comand_line (){
-    setInterval(function() {
-        $('#consoleChar').hide();
-        setTimeout(function() {
-            $('#consoleChar').show();
-        }, 500);
-    }, 1000);
+    var comandHistory = ['bomba','kill'];
+    var historyLength = 2;
+    var pointer = -1;
+    var lineSelector = $( "#comandLine" );
+
+   lineSelector.keypress(function(event) {
+        var key = event.key;
+        switch (key){
+            case 'Enter':
+                var value = lineSelector.val();
+                if(comandHistory[0] != value) {
+                    historyLength = comandHistory.unshift(value);
+                }
+                writeConsole(value);
+                lineSelector.val('');
+                pointer = -1;
+                break;
+            case 'ArrowUp':
+                pointer++;
+                checkPoiner();
+                lineSelector.val(comandHistory[pointer]);
+                break;
+            case 'ArrowDown':
+                pointer--;
+                checkPoiner();
+                lineSelector.val(comandHistory[pointer]);
+                break;
+            default:
+                break;
+        }
+    });
+
+    function checkPoiner () {
+        if(pointer < 0) {
+            pointer = 0 ;
+        }
+        if((pointer + 1) > historyLength) {
+            pointer = historyLength-1;
+        }
+    }
 }

@@ -20,8 +20,11 @@ class Model_userControl extends Model
 
 		$stmt = $GLOBALS['DB']->prepare("SELECT * FROM users WHERE shaId = :id ");
 		$stmt->execute(array('id' => $id));
-		$row = $stmt->fetch();
+		$user = $stmt->fetch();
 
+		$stmt = $GLOBALS['DB']->prepare("SELECT * FROM keyboard WHERE userId = :userId ");
+		$stmt->execute(array('userId' => $user['id']));
+		$keyboard = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
 
@@ -32,7 +35,8 @@ class Model_userControl extends Model
 
 		$result = array(
 			'title' => 'User list',
-			'data' => $row,
+			'data' => $user,
+			'keyboard' => $keyboard,
 			'error' => false,
 			);
 		return $result;

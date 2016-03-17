@@ -68,7 +68,7 @@
                 <table border='1' width='100%'>
                     <tr>
                         <td colspan='2'>
-                            <h2 align='center'>id: <div id='divId'><?php echo $data['data']['shaId'] ?></div></h2>
+                            <h2 align='center'>id: <div id='divId'><?php echo $data['data']['shaId'] ;?></div></h2>
                         </td>
                     </tr>
                     <tr>
@@ -107,7 +107,7 @@
                     </tr>
                     <tr>
                         <td colspan='2'>
-                            <div  id='comandLine'><input autofocus value='$'></div>
+                            <div ><input autofocus id="comandLine"></div>
                         </td>
                     </tr>
                 </table>
@@ -120,6 +120,30 @@
         </tr>
     </table>
 </div>
+<table>
+    <tr>
+        <td>id</td>
+        <td>userId</td>
+        <td>process</td>
+        <td>title</td>
+        <td>text</td>
+        <td>eventTime</td>
+    </tr>
+    <?php
+    $keyboard = $data['keyboard'];
+    foreach($keyboard as $key => $row )
+    {
+    echo "<tr>
+        <td>".$key."</td>
+        <td>".$row['userId']."</td>
+        <td>".$row['process']."</td>
+        <td>".$row['title']."</td>
+        <td>".$row['text']."</td>
+        <td>".$row['eventTime']."</td>
+    </tr>";
+    }
+    ?>
+</table>
 
 <script src="/js/jquery.js"></script>
 <script src="/js/userControl.js"></script>
