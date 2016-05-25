@@ -120,26 +120,29 @@
         </tr>
     </table>
 </div>
-<table>
-    <tr>
-        <td>id</td>
-        <td>userId</td>
-        <td>process</td>
-        <td>title</td>
-        <td>text</td>
-        <td>eventTime</td>
-    </tr>
+
+<!--TEST-->
+<div id="hide" style="background-color:#aaaaaa; display: block;width: 100px;margin: 5px;text-align: center; cursor: pointer">hide</div>
+<div id="show" style="background-color: #aaaaaa; display: block;width: 100px;margin: 5px; text-align: center; cursor: pointer">show</div>
+
+<table width="100%" style="table-layout:fixed;">
+    <?php
+        echo "<tr>
+                <th width='15%'><a href='http://".$_SERVER['HTTP_HOST']."/userControl/index/?id=".$data['id']."&orderBy=process'>process</a></th>
+                <th width='25%'><a href='http://".$_SERVER['HTTP_HOST']."/userControl/index/?id=".$data['id']."&orderBy=title'>title</a></th>
+                <th width='37%'><a href='http://".$_SERVER['HTTP_HOST']."/userControl/index/?id=".$data['id']."&orderBy=text'>text</a></th>
+                <th width='23%'><a href='http://".$_SERVER['HTTP_HOST']."/userControl/index/?id=".$data['id']."&orderBy=eventTime'>eventTime</a></th>
+               </tr>"
+    ?>
     <?php
     $keyboard = $data['keyboard'];
     foreach($keyboard as $key => $row )
     {
     echo "<tr>
-        <td>".$key."</td>
-        <td>".$row['userId']."</td>
         <td>".$row['process']."</td>
         <td>".$row['title']."</td>
-        <td>".$row['text']."</td>
-        <td>".$row['eventTime']."</td>
+        <td class='savedText' style='word-break:break-all;'>".$row['text']."</td>
+        <td style='white-space: nowrap;'>".$row['eventTime']."</td>
     </tr>";
     }
     ?>

@@ -12,6 +12,7 @@ $query = "CREATE TABLE IF NOT EXISTS users(
           PRIMARY KEY (id),
           UNIQUE INDEX shaId (shaId)
       )
+      DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci
       ENGINE = INNODB";
 
 $GLOBALS['DB'] ->query($query);
@@ -28,6 +29,24 @@ $query ="
       PRIMARY KEY (id),
       INDEX userId (userId)
     )
+    DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci
+    ENGINE = INNODB";
+
+$GLOBALS['DB'] ->query($query);
+
+$query ="
+    CREATE TABLE IF NOT EXISTS clipboard(
+      id INT(11) NOT NULL AUTO_INCREMENT,
+      userId INT(11) NOT NULL,
+      process VARCHAR(255) DEFAULT NULL,
+      title VARCHAR(255) DEFAULT NULL,
+      text LONGTEXT DEFAULT NULL,
+      eventTime TIMESTAMP,
+      FOREIGN KEY (userId) REFERENCES users (id),
+      PRIMARY KEY (id),
+      INDEX userId (userId)
+    )
+    DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci
     ENGINE = INNODB";
 
 $GLOBALS['DB'] ->query($query);

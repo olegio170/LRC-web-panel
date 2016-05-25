@@ -20,6 +20,38 @@ function main (){
             checkAnswerFromServer();
         }
     });
+
+    var windowHeight = window.innerHeight
+        || document.documentElement.clientHeight
+        || document.body.clientHeight;
+
+    window.onscroll = function() {
+        var scrolled = window.pageYOffset || document.documentElement.scrollTop;
+        var main = $("#main");
+        if (scrolled >= windowHeight) {
+            main.addClass('hugeWidth');
+        }
+        else {
+            main.removeClass('hugeWidth');
+        }
+    }
+
+    $('#hide').click(function(){
+       $('.savedText').each(function(i,elem) {
+           if ($(elem).text() === "") {
+               $(elem).parent().hide();
+           }
+       });
+    });
+
+    $('#show').click(function(){
+        $('.savedText').each(function(i,elem) {
+            if ($(elem).text() === "") {
+                $(elem).parent().show();
+            }
+        });
+    });
+
 }
 function checkAnswerFromServer() {
     setTimeout(function () {

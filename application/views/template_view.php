@@ -55,7 +55,7 @@
                 <div class="mt-block-header">
                     <h2><?php echo $data['title'] ?></h2>
                 </div>
-                <div class="mt-block-content mt-padding">
+                <div class="mt-block-content mt-padding" >
                     <?php include 'application/views/'.$content_view; ?>
                 </div>
             </div>

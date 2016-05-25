@@ -246,3 +246,15 @@ table tr td {
     text-overflow: ellipsis;
 }
 /* --- */
+
+.hugeWidth {
+    width:1000px;
+}
+
+.userList {
+    table-layout:fixed;
+}
+.userList td {
+    overflow:hidden;
+    white-space: nowrap;
+}

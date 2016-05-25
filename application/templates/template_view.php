@@ -53,12 +53,12 @@
             </div>
         </aside>
 
-        <main>
+        <main id="main">
             <div class="mt-block">
                 <div class="mt-block-header">
                     <h2><?php echo $data['title'] ?></h2>
                 </div>
-                <div class="mt-block-content mt-padding">
+                <div class="mt-block-content mt-padding" id="rightBlock">
                     <?php include 'application/views/'.$content_view; ?>
                 </div>
             </div>

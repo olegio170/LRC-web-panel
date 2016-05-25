@@ -1,12 +1,12 @@
 <div class="block-overflow">
     <table border="1" width="100%" class="userList">
         <tr id ="headerList">
-            <td>№</td>
-            <td>id</td>
-            <td>CPU</td>
-            <td>RAM</td>
-            <td>OS</td>
-            <td>Speed</td>
+            <td width="5%">№</td>
+            <td width="35%">id</td>
+            <td width="15%">CPU</td>
+            <td width="15%">RAM</td>
+            <td width="15%">OS</td>
+            <td width="15%">Speed</td>
         </tr>
         <?php
         /*
@@ -41,17 +41,13 @@
                     </tr>";
         }
         ?>
-        <tr>
-            <td colspan='7'>
-                <?php
-
-                for ($i = 1; $i<=$data['count']; $i++)
-                {
-                    echo "<div style='display: inline-block;margin-right: 5px;;'><a href='http://".$_SERVER['HTTP_HOST']."/userList/index/?page=".$i."'>".$i."</a></div>";
-                }
-
-                ?>
-            </td>
-        </tr>
     </table>
+        <?php
+
+        for ($i = 1; $i<=$data['count']; $i++)
+        {
+            echo "<<div style='margin-top:15px; display: inline-block;margin-right: 5px;'><a href='http://".$_SERVER['HTTP_HOST']."/userList/index/?page=".$i."'>".$i."</a>></div>";
+        }
+
+        ?>
 </div>

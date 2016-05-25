@@ -8,7 +8,8 @@ require_once 'core/controller.php';
 require_once 'core/auth.php';
 
 
-//require_once '/application/createDatabase.php';
+require_once '/application/createDatabase.php';
+
 /*
 Здесь обычно подключаются дополнительные модули, реализующие различный функционал:
 	> аутентификацию
