@@ -10,11 +10,9 @@ class Controller_userControl extends Controller
 
 	function action_index()
 	{
-		$rows = array('process','title','text','eventTime');
 		$data['title'] = 'User control';
 
-
-		$options = array('id' => 0 , 'orderBy' => '');
+		$options = array('id' => 0 , 'orderBy' => '' );
 
 		if(isset($_GET['id']))
 		{
@@ -23,10 +21,7 @@ class Controller_userControl extends Controller
 
 		if(isset($_GET['orderBy']))
 		{
-			if(in_array($_GET['orderBy'],$rows))
-			{
-				$options['orderBy'] = "ORDER BY ".$_GET['orderBy'] ;
-			}
+			$options['orderBy'] = $_GET['orderBy'] ;
 		}
 
 		$data = $this->model->get_data($options);
@@ -40,6 +35,18 @@ class Controller_userControl extends Controller
 
 
 		$this->view->generate('userControl_view.php', 'template_view.php', $data);
+	}
+	function action_ajax ()
+	{
+		$options['id'] = $_POST['id'];
+		$options['orderBy']= $_POST['orderBy'];
+		$options['showWithoutText'] = $_POST['showWithoutText'];
+		$options['conversely'] = $_POST['conversely'];
+		$options['process'] = $_POST['process'];
+
+		$data = $this->model->get_data($options);
+
+		echo $data['table'];
 	}
 	
 }

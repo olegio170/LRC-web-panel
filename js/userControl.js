@@ -3,12 +3,15 @@ var id = '8f51dfd14221bc7d6adaefdf0533bf9e2af2d21e1395c6085fdf76943734c271';
 var clientObj = {
     isAnswer:false
 }
+var orderBy = '';
+var process = '';
+var conversely = false;
 $(document).ready(function(){
     main();
 });
 //main();
 function main (){
-    comand_line();
+    defineFiltersHendler ();
     if (!window.WebSocket) {
         alert ('WebSocket is  unsupported in your browser!');
     }
@@ -34,24 +37,40 @@ function main (){
         else {
             main.removeClass('hugeWidth');
         }
-    }
+    };
 
-    $('#hide').click(function(){
-       $('.savedText').each(function(i,elem) {
-           if ($(elem).text() === "") {
-               $(elem).parent().hide();
-           }
-       });
+
+}
+function defineFiltersHendler () {
+    $("#showWithoutText").change(function () {
+        getData();
     });
-
-    $('#show').click(function(){
-        $('.savedText').each(function(i,elem) {
-            if ($(elem).text() === "") {
-                $(elem).parent().show();
+    $(".tableHeader").click(function () {
+        var name = $(this).attr('name');
+        if(name === orderBy) {
+            if(conversely) {
+                conversely = false;
             }
-        });
+            else {
+                conversely = true;
+            }
+        }
+        else  {
+            orderBy = name;
+            conversely = false;
+        }
+        getData();
     });
-
+    $(".td-process").click(function () {
+        process = $(this).text();
+        $('#selectedProcessName').text(process);
+        getData();
+    });
+    $("#selectedProcessName").click(function () {
+        process ='';
+        $(this).text("None");
+        getData();
+    });
 }
 function checkAnswerFromServer() {
     setTimeout(function () {
@@ -134,45 +153,17 @@ function writeConsole (msg) {
 }
 
 
-function comand_line (){
-    var comandHistory = ['bomba','kill'];
-    var historyLength = 2;
-    var pointer = -1;
-    var lineSelector = $( "#comandLine" );
-
-   lineSelector.keypress(function(event) {
-        var key = event.key;
-        switch (key){
-            case 'Enter':
-                var value = lineSelector.val();
-                if(comandHistory[0] != value) {
-                    historyLength = comandHistory.unshift(value);
-                }
-                writeConsole(value);
-                lineSelector.val('');
-                pointer = -1;
-                break;
-            case 'ArrowUp':
-                pointer++;
-                checkPoiner();
-                lineSelector.val(comandHistory[pointer]);
-                break;
-            case 'ArrowDown':
-                pointer--;
-                checkPoiner();
-                lineSelector.val(comandHistory[pointer]);
-                break;
-            default:
-                break;
+function getData () {
+    var id = $('#divId').text();
+    var showWithoutText = $("#showWithoutText").prop("checked");
+    $.ajax({
+        type:"POST",
+        url:"/userControl/ajax/",
+        data:({id:id,orderBy:orderBy,showWithoutText:showWithoutText?1:0,conversely:conversely?1:0,process:process}),
+        success:function(data){
+          //  alert(data);
+           $('#keyboardTable').html(data);
+            defineFiltersHendler ();
         }
     });
-
-    function checkPoiner () {
-        if(pointer < 0) {
-            pointer = 0 ;
-        }
-        if((pointer + 1) > historyLength) {
-            pointer = historyLength-1;
-        }
-    }
 }
